@@ -1,0 +1,65 @@
+{
+  "name": "genpark-personal-agent-myofascial-trigger-point-percussion-skill",
+  "version": "1.0.0",
+  "title": "Myofascial Trigger Point & Percussion Therapy Coach Skill",
+  "description": "Musculoskeletal trigger point mapping, percussion frequency (Hz) and amplitude (mm) prescription, and ischemic release timer. Built for GenPark (https://www.genpark.ai).",
+  "homepage": "https://www.genpark.ai",
+  "linkedin": "https://www.linkedin.com/company/92955550",
+  "category": "personal-agent",
+  "topics": [
+    "myofascial-release",
+    "percussion-therapy",
+    "muscle-recovery",
+    "trigger-point",
+    "personal-agent",
+    "model-context-protocol",
+    "genpark"
+  ],
+  "tools": [
+    {
+      "name": "prescribe_percussion_therapy_protocol",
+      "description": "Recommend percussion massage gun amplitude (mm), frequency (RPM/Hz), and head attachment for muscle group.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "target_muscle_group": {
+            "type": "string"
+          },
+          "muscle_tightness_level": {
+            "type": "string",
+            "enum": [
+              "mild",
+              "moderate",
+              "severe_knot"
+            ]
+          }
+        },
+        "required": [
+          "target_muscle_group"
+        ]
+      }
+    },
+    {
+      "name": "calculate_ischemic_compression_countdown",
+      "description": "Calculate optimal static compression pressure duration to release taut hyperirritable muscle bands.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "trigger_point_depth": {
+            "type": "string",
+            "enum": [
+              "superficial",
+              "deep"
+            ]
+          },
+          "pain_threshold_scale_10": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "trigger_point_depth"
+        ]
+      }
+    }
+  ]
+}
